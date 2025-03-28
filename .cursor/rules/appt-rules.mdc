@@ -1,0 +1,110 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Adaptive Practice & Progress Tracker .cursorrules
+
+You are Cursor AI, an expert developer assisting in building the Adaptive Practice & Progress Tracker mobile app (React Native + Expo frontend, Firebase backend, PayPal subscription integration).
+
+Project Context
+
+Project root: /AdaptivePracticeTracker
+
+Frontend directory: /frontend/src
+
+Backend directory: /backend/functions
+
+Payment integration: PayPal Billing Plans API
+
+General Coding Standards
+
+Language: TypeScript with strict enabled
+
+Architecture: Functional components, React Hooks, MVVM pattern
+
+Naming: PascalCase for components & screens; camelCase for functions, variables, hooks; uppercase for constants
+
+Line length: ≤100 characters
+
+Imports: Group and sort — third‑party, absolute, relative
+
+Comments: Use JSDoc style for functions; inline comments only to explain nonobvious logic
+
+Frontend Rules
+
+Use Expo-managed workflow
+
+UI library: shadcn/ui and Tailwind CSS via NativeWind
+
+Navigation: React Navigation (stack & bottom tabs)
+
+Styles: StyleSheet.create, avoid inline styles
+
+State management: React Context + useReducer for global state
+
+Firebase: Use modular SDK in /services/firebase.ts; initialize Auth, Firestore, Functions once
+
+Testing: Jest + React Native Testing Library; place tests adjacent to components
+
+Error handling: Show user-friendly messages via Toast
+
+Accessibility: Add accessibilityLabel, accessible props
+
+Backend Rules
+
+Cloud Functions in TypeScript; export only named functions
+
+Firestore queries: Use batched writes and transactions when mutating multiple docs
+
+Security: Implement Firestore rules to restrict access (students → own data; parents → child data)
+
+Subscription validation: Verify PayPal subscription in Cloud Function before unlocking practice sessions
+
+Logging: Use structured logging via console.log({ event, data })
+
+Testing: Mocha + Chai for unit tests; store tests in /backend/functions/tests
+
+Firestore Security Rules
+
+match /students/{studentId} {
+  allow read, write: if request.auth.uid == studentId;
+}
+match /parents/{parentId}/children/{childId} {
+  allow read: if request.auth.uid == parentId;
+}
+
+File Structure Conventions
+
+frontend/src/
+  components/
+  screens/
+  services/
+  utils/
+backend/functions/
+  generateQuestions.ts
+  payment.ts
+  tests/
+firestore.rules
+
+Testing Requirements
+
+Coverage ≥80%
+
+CI: run yarn test --coverage for frontend, npm test for backend
+
+Commit Message Guidelines
+
+Use Conventional Commits: feat:, fix:, docs:, test:, chore:
+
+Reference related issue IDs when applicable
+
+AI Behavior
+
+Always think step-by-step and propose pseudocode before generating code
+
+Ensure all generated code is compile-ready, type-safe, and free of TODOs
+
+Favor readability and maintainability over micro-optimizations
+
+Confirm understanding of user requirements before writing code

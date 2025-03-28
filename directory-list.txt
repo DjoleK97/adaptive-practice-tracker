@@ -1,0 +1,12 @@
+=== File List (excluding node_modules) ===
+
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\.firebaserc
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\.gitignore
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\firebase.json
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\.eslintrc.js
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\.gitignore
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\package-lock.json
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\package.json
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\tsconfig.dev.json
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\tsconfig.json
+E:\local-website\TataMata\AdaptivePracticeTracker\backend\functions\src\index.ts
