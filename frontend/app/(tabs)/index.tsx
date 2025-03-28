@@ -1,9 +1,26 @@
+import { db } from "@/firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+import { Button, View, Alert } from "react-native";
 import { Image, StyleSheet, Platform } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+
+const handleTestFirestoreWrite = async () => {
+  try {
+    await addDoc(collection(db, "testWrites"), {
+      timestamp: new Date(),
+      message: "🔥 It works!",
+    });
+    Alert.alert("Success", "Document written to Firestore!");
+  } catch (error) {
+    console.error("Error writing to Firestore:", error);
+    Alert.alert("Error", "Failed to write document.");
+  }
+};
+
 
 export default function HomeScreen() {
   return (
@@ -50,6 +67,10 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+	  <ThemedView style={styles.stepContainer}>
+		  <ThemedText type="subtitle">Step 4: Firestore Test</ThemedText>
+		  <Button title="Test Firestore Write" onPress={handleTestFirestoreWrite} />
+	  </ThemedView>
     </ParallaxScrollView>
   );
 }
