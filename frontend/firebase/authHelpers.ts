@@ -19,7 +19,7 @@ interface SignOutResponse {
 
 export const signUp = async (email: string, password: string): Promise<AuthResponse> => {
   try {
-    const userCredential: UserCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return { user: userCredential.user, error: null };
   } catch (error: any) {
     console.error("Error signing up:", error.message);
@@ -27,22 +27,22 @@ export const signUp = async (email: string, password: string): Promise<AuthRespo
   }
 };
 
-export const logIn = async (email: string, password: string): Promise<AuthResponse> => {
+export const signIn = async (email: string, password: string): Promise<AuthResponse> => {
   try {
-    const userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return { user: userCredential.user, error: null };
   } catch (error: any) {
-    console.error("Error logging in:", error.message);
+    console.error("Error signing in:", error.message);
     return { user: null, error: error.message };
   }
 };
 
-export const signOut = async (): Promise<SignOutResponse> => {
+export const signOut = async (): Promise<AuthResponse> => {
   try {
     await firebaseSignOut(auth);
-    return { success: true, error: null };
+    return { user: null, error: null };
   } catch (error: any) {
     console.error("Error signing out:", error.message);
-    return { success: false, error: error.message };
+    return { user: null, error: error.message };
   }
 };

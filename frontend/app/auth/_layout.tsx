@@ -1,9 +1,22 @@
 import { Stack } from 'expo-router';
+import { View, StyleSheet } from 'react-native';
+import { Text } from '@/components/ui/text';
 
 export default function AuthLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="test-auth" />
-    </Stack>
+    <View style={styles.container}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
+    </View>
   );
-} 
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+}); 
