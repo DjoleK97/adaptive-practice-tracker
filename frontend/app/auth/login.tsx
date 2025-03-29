@@ -39,7 +39,7 @@ export default function LoginScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.content}>
         <Text variant="h1" style={styles.title}>Welcome Back</Text>
-        <Text style={styles.subtitle}>Sign in to continue</Text>
+        <Text style={styles.subtitle}>Log in to continue</Text>
 
         <Input
           label="Email"
@@ -60,7 +60,7 @@ export default function LoginScreen() {
         />
 
         <Button
-          title="Sign In"
+          title="Log In"
           onPress={handleLogin}
           loading={loading}
           style={styles.button}
